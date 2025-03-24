@@ -15,8 +15,7 @@
     --payment-terms-background-color: rgb(255 255 255);
     --page-width: 100%;
   }
-  
-  /* Reset and base styles */
+
   *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -47,14 +46,12 @@
     border: 0;
   }
   
-  /* Page width container */
   .page-width {
     max-width: var(--page-width);
     margin: 0 auto;
     padding: 0 1.5rem;
   }
   
-  /* Header styles */
   .header {
     padding: 6px 3rem;
     display: flex;
@@ -68,18 +65,29 @@
     align-items: center;
   }
   
-  .hamburger-menu {
-    background: none;
+  .navbar-toggler {
+    background-color: transparent;
     border: none;
     cursor: pointer;
-    padding: 5px;
-    color: rgba(var(--color-foreground), 0.75);
+    margin-right: auto;
   }
-  
-  .hamburger-menu .icon {
-    width: 24px;
-    height: 24px;
+
+  .navbar-toggler-icon {
+    background-color: black !important;
+    width: 32px;
+    height: 32px;
+    background-size: contain;
   }
+
+  .navbar-collapse {
+    background-color: white;
+    padding: 10px;
+  }
+
+  .navbar-toggler:focus {
+    outline: none;
+  }
+
   
   .heading {
     grid-area: heading;
@@ -92,7 +100,6 @@
     gap: 20px;
   }
   
-  /* Logo styles */
   .logo {
     max-width: 180px;
     margin: 0 auto;
@@ -104,7 +111,6 @@
     display: block;
   }
   
-  /* Region and Currency dropdown styles */
   .region-currency .dropdown {
     border: none;
     background: none;
@@ -115,8 +121,7 @@
     color: rgba(var(--color-foreground), 0.75);
     outline: none;
   }
-  
-  /* Header icons styles */
+
   .header__icon {
     background: none;
     border: none;
@@ -135,15 +140,14 @@
   }
   
   .icon-cart-empty {
-    width: 24px;
-    height: 24px;
+    width: 38px !important;
+    height: 38px !important;
   }
   
   .header__icon:hover {
     color: rgba(var(--color-foreground), 1);
   }
   
-  /* Search icon styles */
   .header__icon--search {
     cursor: pointer;
     padding: 5px;
@@ -156,8 +160,7 @@
   .modal__toggle-open {
     display: block;
   }
-  
-  /* Navigation styles */
+
   .main-nav {
     padding: 15px 0;
     background: white;
@@ -173,6 +176,7 @@
     max-width: var(--page-width);
     margin: 0 auto;
     padding: 0 1.5rem;
+    position: sticky;
   }
   
   .navbar-nav .nav-link {
@@ -180,14 +184,95 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: color 0.2s ease;
-    font-size: 14px; /* Reduced font size */
+    font-size: 14px;
   }
   
   .navbar-nav .nav-link:hover {
     color: rgba(var(--color-foreground), 1);
   }
-  
-  /* Discount banner styles */
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background-color: white;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  padding: 40px 0;
+  z-index: 1000;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background-color: white;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  padding: 40px 0;
+  z-index: 1000;
+}
+
+.dropdown-menu .multi-column {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px; 
+  margin: 0 auto; 
+  gap: 40px;
+}
+
+.dropdown-column {
+  flex: 1;
+  max-width: 300px;
+}
+
+.dropdown-column h5 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: rgba(var(--color-foreground), 0.9);
+  font-weight: 600;
+}
+
+.dropdown-item {
+  display: block;
+  font-size: 14px;
+  color: rgba(var(--color-foreground), 0.75);
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.dropdown-item:hover {
+  color: rgba(var(--color-foreground), 1);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: flex;
+}
+
+.nav-link::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu .multi-column {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dropdown-column {
+    max-width: 100%;
+  }
+}
+
   .discount-banner {
     width: 100%;
   }
@@ -197,8 +282,7 @@
     height: auto;
     display: block;
   }
-  
-  /* Hero section styles */
+
   .hero {
     height: 80vh;
     display: flex;
@@ -271,8 +355,7 @@
   .shop-button:hover {
     background: rgba(255, 255, 255, 0.1);
   }
-  
-  /* Featured section */
+
   .featured-section {
     display: flex;
     align-items: center;
@@ -312,8 +395,7 @@
     line-height: 1.8;
     color: rgba(var(--color-foreground), 0.75);
   }
-  
-  /* Products section */
+
   .products-section {
     max-width: var(--page-width);
     margin: 0 auto;
@@ -380,8 +462,7 @@
   .shop-all-button:hover {
     background: rgba(var(--color-foreground), 0.1);
   }
-  
-  /* Heritage Section */
+
   .heritage-section {
     display: flex;
     align-items: center;
@@ -390,8 +471,7 @@
     margin: 0 auto;
     gap: 60px;
   }
-  
-  /* Lambswool Hero Section */
+
   .lambswool-hero {
     height: 80vh;
     background-image: url('assets/12.jpg');
@@ -415,8 +495,7 @@
     font-weight: 400;
     letter-spacing: 2px;
   }
-  
-  /* Essential Lambswool Section */
+
   .essential-section {
     max-width: var(--page-width);
     margin: 0 auto;
@@ -430,8 +509,7 @@
     color: rgba(var(--color-foreground), 0.9);
     text-align: left;
   }
-  
-  /* Iconic Argyle Section */
+
   .iconic-argyle {
     height: 80vh;
     background-image: url('assets/17.jpg');
@@ -472,8 +550,7 @@
   .transparent-button:hover {
     background: rgba(255, 255, 255, 0.1);
   }
-  
-  /* Made in Scotland Section */
+
   .made-in-scotland {
     display: flex;
     gap: 30px;
@@ -498,8 +575,7 @@
     margin-bottom: 15px;
     color: rgba(var(--color-foreground), 0.9);
   }
-  
-  /* Explore Knitwear Section */
+
   .explore-knitwear {
     height: 80vh;
     background-image: url('assets/20.jpg');
@@ -510,8 +586,7 @@
     justify-content: center;
     text-align: center;
   }
-  
-  /* Our Story Section */
+
   .our-story {
     display: flex;
     gap: 30px;
@@ -536,8 +611,7 @@
     margin-bottom: 15px;
     color: rgba(var(--color-foreground), 0.9);
   }
-  
-  /* Newsletter Section */
+
   .newsletter {
     text-align: center;
     padding: 60px 20px;
@@ -579,8 +653,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
-  
-  /* Royal Warrant Section */
+
   .royal-warrant {
     text-align: center;
     padding: 40px 20px;
@@ -590,8 +663,7 @@
     max-width: 200px;
     height: auto;
   }
-  
-  /* Footer Navigation */
+
   .footer-nav {
     border-top: 1px solid rgba(var(--color-foreground), 0.1);
     padding: 30px 0;
@@ -631,7 +703,8 @@
     width: 24px;
     height: 24px;
   }
-  
+
+
   .footer {
     text-align: center;
     padding: 20px;
@@ -648,7 +721,120 @@
     text-decoration: underline;
   }
   
-  /* Responsive design */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1001;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .login-modal {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    margin: 40px auto;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+  }
+
+  .modal-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-modal {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .form-submit:hover {
+    background-color: #333;
+  }
+
+
+
   @media (max-width: 1200px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
