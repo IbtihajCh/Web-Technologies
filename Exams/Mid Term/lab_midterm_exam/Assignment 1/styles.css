@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #ff7613; /* Soft orange */
+  --text-color: #727171;
+  --background-color: #f4f4f4; /* Neutral background */
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: Inter, sans-serif;
+  background-color: var(--background-color);
+  color: #333;
+}
+
+/* common styles */
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.description {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text-color);
+}
+.title {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;  /* Added space before headings */
+}
+.item_preTitle {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  font-weight: 300;
+}
+.item_title {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 500;
+  margin: 1rem 0;  /* Increased margin */
+}
+.item_subtitle {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+/* layout adjustments */
+.container {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  padding: 5rem;
+  background: #ffffff;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 3rem;  /* Increased margin to give space around profile */
+}
+
+.main-content {
+  display: flex;
+  gap: 3rem;  /* Increased gap between columns */
+  flex-wrap: wrap;
+}
+
+.left-column, .right-column {
+  flex: 1;
+}
+
+.left-column {
+  padding-right: 2rem;
+}
+
+.right-column {
+  padding-left: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .left-column, .right-column {
+    width: 100%;
+  }
+}
+
+/* profile styles */
+.profile_container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;  /* Increased gap for spacing */
+}
+.profile_profileImg {
+  display: block;
+  width: 100%;
+  max-width: 500px;  /* Adjust for larger image size */
+  height: auto;
+  margin: 0 auto;  /* Centers the image */
+}
+.profile_profileImg img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;  /* Or any size you prefer */
+}
+
+.profile_name_firstName {
+  color: #333;
+  font-weight: 200;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  text-transform: uppercase;
+}
+.profile_name_lastName {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: clamp(3rem, 15vw, 7rem);
+  text-transform: uppercase;
+}
+.profile_title {
+  font-size: 1.7rem;  /* Slightly increased font size */
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 768px) {
+  .profile_container {
+    flex-direction: column;
+  }
+}

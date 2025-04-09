@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pringle of Scotland</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+        <symbol id="icon-search" viewBox="0 0 24 24">
+            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="icon-account" viewBox="0 0 18 19">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4.5a3 3 0 116 0 3 3 0 01-6 0zm3-4a4 4 0 100 8 4 4 0 000-8zm5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15zM9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35z" fill="currentColor"/>
+        </symbol>
+        <symbol id="icon-cart" viewBox="0 0 24 24">
+            <path d="m15.75 11.8h-3.16l-.77 11.6a5 5 0 0 0 4.99 5.34h7.38a5 5 0 0 0 4.99-5.33l-.78-11.61zm0 1h-2.22l-.71 10.67a4 4 0 0 0 3.99 4.27h7.38a4 4 0 0 0 4-4.27l-.72-10.67h-2.22v.63a4.75 4.75 0 1 1 -9.5 0zm8.5 0h-7.5v.63a3.75 3.75 0 1 0 7.5 0z" fill="currentColor" fill-rule="evenodd"/>
+        </symbol>
+    </svg>
+
+    <header class="header page-width">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="black" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    </button>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Pringle of Scotland">
+        </div>
+        <div class="icons">
+            <div class="region-currency">
+                <select class="dropdown">
+                    <option value="UK-GBP">UK | GBP</option>
+                    <option value="EU-EUR">EU | EUR</option>
+                    <option value="US-USD">US | USD</option>
+                </select>
+            </div>
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="Search" role="button">
+                <span>
+                    <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false">
+                        <use href="#icon-search"></use>
+                    </svg>
+                    <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
+                        <use href="#icon-close"></use>
+                    </svg>
+                </span>
+            </summary>
+            <a href="#" class="header__icon header__icon--account link focus-inset">
+                <svg class="icon icon-account" aria-hidden="true" focusable="false">
+                    <use href="#icon-account"></use>
+                </svg>
+                <span class="visually-hidden">Log in</span>
+            </a>
+            <a href="#" class="header__icon header__icon--cart link focus-inset">
+                <svg class="icon icon-cart-empty" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+                    <path d="m15.75 11.8h-3.16l-.77 11.6a5 5 0 0 0 4.99 5.34h7.38a5 5 0 0 0 4.99-5.33l-.78-11.61zm0 1h-2.22l-.71 10.67a4 4 0 0 0 3.99 4.27h7.38a4 4 0 0 0 4-4.27l-.72-10.67h-2.22v.63a4.75 4.75 0 1 1 -9.5 0zm8.5 0h-7.5v.63a3.75 3.75 0 1 0 7.5 0z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+                <span class="visually-hidden">Bag</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Women</a>
+                    <div class="dropdown-menu multi-column">
+                        <div class="dropdown-column">
+                            <h5>Highlights</h5>
+                            <a class="dropdown-item" href="#">New Arrivals</a>
+                            <a class="dropdown-item" href="#">Cashmere Knitwear</a>
+                            <a class="dropdown-item" href="#">Made in Scotland</a>
+                            <a class="dropdown-item" href="#">Loungewear Collection</a>
+                            <a class="dropdown-item" href="#">Argyle</a>
+                            <a class="dropdown-item" href="#">Best Sellers</a>
+                            <a class="dropdown-item" href="#">Conscious Collection</a>
+                            <a class="dropdown-item" href="#">Gifts for Women</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h5>Shop Knitwear</h5>
+                            <a class="dropdown-item" href="#">All Knitwear</a>
+                            <a class="dropdown-item" href="#">Cashmere</a>
+                            <a class="dropdown-item" href="#">Merino</a>
+                            <a class="dropdown-item" href="#">Lambswool</a>
+                            <a class="dropdown-item" href="#">Light Weight Knits</a>
+                            <a class="dropdown-item" href="#">Medium Weight Knits</a>
+                            <a class="dropdown-item" href="#">Heavy Weight Knits</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h5>Shop Clothing</h5>
+                            <a class="dropdown-item" href="#">Loungewear</a>
+                            <a class="dropdown-item" href="#">Classic Cashmere</a>
+                            <a class="dropdown-item" href="#">Round Neck Knits</a>
+                            <a class="dropdown-item" href="#">V Neck Knits</a>
+                            <a class="dropdown-item" href="#">High Neck Knits</a>
+                            <a class="dropdown-item" href="#">Jackets</a>
+                            <a class="dropdown-item" href="#">Cardigans</a>
+                            <a class="dropdown-item" href="#">Vests</a>
+                            <a class="dropdown-item" href="#">Skirts</a>
+                            <a class="dropdown-item" href="#">Trousers</a>
+                        </div>
+                    </div>
+                </li>
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Men</a>
+                    <div class="dropdown-menu multi-column">
+                        <div class="dropdown-column">
+                            <h5>Highlights</h5>
+                            <a class="dropdown-item" href="#">New Arrivals</a>
+                            <a class="dropdown-item" href="#">Cashmere Knitwear</a>
+                            <a class="dropdown-item" href="#">Lambswool Knitwear</a>
+                            <a class="dropdown-item" href="#">Cable Knit Jumpers</a>
+                            <a class="dropdown-item" href="#">Argyle</a>
+                            <a class="dropdown-item" href="#">Made in Scotland</a>
+                            <a class="dropdown-item" href="#">Best Sellers</a>
+                            <a class="dropdown-item" href="#">Conscious Collection</a>
+                            <a class="dropdown-item" href="#">Gifts for Men</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h5>Shop Knitwear</h5>
+                            <a class="dropdown-item" href="#">All Knitwear</a>
+                            <a class="dropdown-item" href="#">Cashmere</a>
+                            <a class="dropdown-item" href="#">Merino</a>
+                            <a class="dropdown-item" href="#">Lambswool</a>
+                            <a class="dropdown-item" href="#">Cotton</a>
+                            <a class="dropdown-item" href="#">Light Weight Knits</a>
+                            <a class="dropdown-item" href="#">Medium Weight Knits</a>
+                            <a class="dropdown-item" href="#">Heavy Weight Knits</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h5>Shop Clothing</h5>
+                            <a class="dropdown-item" href="#">Classic Cashmere</a>
+                            <a class="dropdown-item" href="#">Round Neck Knits</a>
+                            <a class="dropdown-item" href="#">V Neck Knits</a>
+                            <a class="dropdown-item" href="#">High Neck Knits</a>
+                            <a class="dropdown-item" href="#">Jumpers</a>
+                            <a class="dropdown-item" href="#">Cardigans</a>
+                            <a class="dropdown-item" href="#">Loungewear</a>
+                            <a class="dropdown-item" href="#">Vests</a>
+                            <a class="dropdown-item" href="#">Polo Shirts</a>
+                        </div>
+                    </div>
+                </li>
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Collections</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h5>Collections</h5>
+                            <a class="dropdown-item" href="#">Pringle Heritage</a>
+                            <a class="dropdown-item" href="#">Women's New Arrivals</a>
+                            <a class="dropdown-item" href="#">Men's New Arrivals</a>
+                            <a class="dropdown-item" href="#">Men's Cashmere Knitwear</a>
+                            <a class="dropdown-item" href="#">Women's Cashmere Knitwear</a>
+                            <a class="dropdown-item" href="#">Men's Wool Collection</a>
+                            <a class="dropdown-item" href="#">Gifts</a>
+                        </div>
+                    </div>
+                </li>
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Accessories</a>
+                    <div class="dropdown-menu multi-column">
+                        <div class="dropdown-column">
+                            <h5>Women's Accessories</h5>
+                            <a class="dropdown-item" href="#">View All</a>
+                            <a class="dropdown-item" href="#">Scarves</a>
+                            <a class="dropdown-item" href="#">Gloves</a>
+                            <a class="dropdown-item" href="#">Hats & Beanies</a>
+                            <a class="dropdown-item" href="#">Leg Warmers</a>
+                            <a class="dropdown-item" href="#">Socks</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h5>Men's Accessories</h5>
+                            <a class="dropdown-item" href="#">View All</a>
+                            <a class="dropdown-item" href="#">Scarves</a>
+                            <a class="dropdown-item" href="#">Gloves</a>
+                            <a class="dropdown-item" href="#">Hats & Beanies</a>
+                            <a class="dropdown-item" href="#">Socks</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h5>Gifts</h5>
+                            <a class="dropdown-item" href="#">Gifts for Men</a>
+                            <a class="dropdown-item" href="#">Gifts for Women</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Archive Collections</a>
+                </li>
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Our World</a>
+                    <div class="dropdown-menu multi-column">
+                        <div class="dropdown-column">
+                            <h5>Discover</h5>
+                            <a class="dropdown-item" href="#">Our Story</a>
+                            <a class="dropdown-item" href="#">Iconic Argyle</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h5>Craftsmanship</h5>
+                            <a class="dropdown-item" href="#">Made in Scotland</a>
+                            <a class="dropdown-item" href="#">Cashmere</a>
+                            <a class="dropdown-item" href="#">Fibres Explained</a>
+                            <a class="dropdown-item" href="#">All About Gauge</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h5>Sustainability</h5>
+                            <a class="dropdown-item" href="#">Sustainability</a>
+                            <a class="dropdown-item" href="#">Circularity</a>
+                            <a class="dropdown-item" href="#">Knitwear Care</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="discount-banner">
+        <img src="assets/discount.png" alt="Special Discount">
+    </div>
+
+    <section id="heroCarousel" class="carousel slide hero" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="hero-content">
+                    <h1>Timeless Cashmere Collection</h1>
+                    <div class="hero-buttons">
+                        <button class="shop-button">Shop Women</button>
+                        <button class="shop-button">Shop Mens</button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-content">
+                    <h1>Men's Lambwool Collection</h1>
+                    <div class="hero-buttons">
+                        <button class="shop-button">Men's Knitwear</button>
+                        <button class="shop-button">Men's Accessories</button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-content">
+                    <h1>Iconic Argyle</h1>
+                    <button class="transparent-button">Explore the Collection</button>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </section>
+
+    <section class="featured-section">
+        <div class="featured-content">
+            <h2>We Love Cashmere</h2>
+            <p>Explore classic designs and new Autumn hues of our Cashmere collection. Extremely soft to touch this collection offers timeless yet modern staples that are essential to your wardrobe.</p>
+            <button class="shop-all-button">Men's New Arrivals</button>
+        </div>
+        <div class="featured-image">
+            <img src="assets/2.jpg" alt="Cashmere Collection">
+        </div>
+    </section>
+
+    <section class="products-section">
+        <h2 class="products-heading">Men's New Arrivals</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="assets/3.jpg" alt="Men's Classic Round Neck Cashmere Jumper">
+                <h3 class="product-title">Men's Classic Round Neck Cashmere Jumper in Grey Melange</h3>
+                <p class="product-price">Rs. 88,000.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/4.png" alt="Men's V Neck Cashmere Argyle Jumper">
+                <h3 class="product-title">Men's V Neck Cashmere Argyle Jumper in Grey Blue & Navy</h3>
+                <p class="product-price">Rs. 121,200.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/5.jpg" alt="Men's Qtr Zip Cashmere Classic Jumper">
+                <h3 class="product-title">Men's Qtr Zip Cashmere Classic Jumper In Grey Melange</h3>
+                <p class="product-price">Rs. 97,000.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/6.jpg" alt="Men's Round Neck Cashmere Jumper">
+                <h3 class="product-title">Men's Round Neck Cashmere Jumper In Grey Melange</h3>
+                <p class="product-price">Rs. 130,500.00 PKR</p>
+            </div>
+        </div>
+        <a href="#" class="shop-all-button">Shop</a>
+    </section>
+
+    <section class="heritage-section">
+        <div class="featured-content">
+            <h2>Refined and effortless elegance since 1815</h2>
+            <p>We believe our cashmere collection is one of the most beautiful and luxurious garments you can wear, and we are proud to have nurtured and developed our knitting legacy since 1815.</p>
+            <button class="shop-all-button">Shop Women's</button>
+        </div>
+        <div class="featured-image">
+            <img src="assets/7.jpg" alt="Heritage Collection">
+        </div>
+    </section>
+
+    <section class="products-section">
+        <h2 class="products-heading">Women's New Arrivals</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="assets/8.jpg" alt="Women's V Neck Chunky Cashmere Jumper">
+                <h3 class="product-title">Womens V Neck Chunky Cashmere Jumper in Sky Blue</h3>
+                <p class="product-price">Rs. 147,300.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/9.jpg" alt="Women's V Neck Chunky Cashmere Jumper">
+                <h3 class="product-title">Women's V Neck Chunky Cashmere Jumper in Navy Melange</h3>
+                <p class="product-price">Rs. 147,300.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/10.jpg" alt="Women's Roll Neck Cashmere Jumper">
+                <h3 class="product-title">Womens Roll Neck Cashmere Jumper in Sky Blue</h3>
+                <p class="product-price">Rs. 158,500.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/11.png" alt="Women's Cashmere Cardigan">
+                <h3 class="product-title">Womens Cashmere Cardigan in Indigo</h3>
+                <p class="product-price">Rs. 158,500.00 PKR</p>
+            </div>
+        </div>
+        <a href="#" class="shop-all-button">Shop</a>
+    </section>
+>
+    <div class="discount-banner">
+        <img src="assets/discount.png" alt="Special Discount">
+    </div>
+
+    <section class="lambswool-hero">
+        <div class="hero-content">
+            <h1>Men's Lambwool Collection</h1>
+            <div class="hero-buttons">
+                <button class="shop-button">Men's Knitwear</button>
+                <button class="shop-button">Men's Accessories</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="essential-section">
+        <h2 class="essential-heading">Essential Lambswool</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="assets/13.jpg" alt="Round Neck Cable Knit Lambswool Jumper">
+                <h3 class="product-title">Round Neck Cable Knit Lambswool Jumper In Dark Natural</h3>
+                <p class="product-price">Rs. 59,700.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/14.jpg" alt="Quarter Zip Lambswool Cable Knit Jumper">
+                <h3 class="product-title">Quarter Zip Lambswool Cable Knit Jumper In Dark Natural</h3>
+                <p class="product-price">Rs. 69,000.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/15.jpg" alt="Men's V Neck Lambswool Argyle Jumper">
+                <h3 class="product-title">Men's V Neck Lambswool Argyle Jumper in Umber/natural/midnight</h3>
+                <p class="product-price">Rs. 61,500.00 PKR</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/16.jpg" alt="V Neck Lambswool Cardigan">
+                <h3 class="product-title">V Neck Lambswool Cardigan In Dark Natural</h3>
+                <p class="product-price">Rs. 54,100.00 PKR</p>
+            </div>
+        </div>
+        <a href="#" class="shop-all-button">Shop</a>
+    </section>
+
+    <section class="iconic-argyle">
+        <div class="hero-content">
+            <h1>Iconic Argyle</h1>
+            <button class="transparent-button">Explore the Collection</button>
+        </div>
+    </section>
+
+    <section class="made-in-scotland">
+        <div class="made-in-scotland-item">
+            <img src="assets/18.jpg" alt="Women's Made in Scotland">
+            <h3>Women's Made in Scotland</h3>
+            <button class="shop-all-button">Shop</button>
+        </div>
+        <div class="made-in-scotland-item">
+            <img src="assets/19.jpg" alt="Men's Made in Scotland">
+            <h3>Men's Made in Scotland</h3>
+            <button class="shop-all-button">Shop</button>
+        </div>
+    </section>
+
+    <section class="explore-knitwear">
+        <div class="hero-content">
+            <h1>Explore all knitwear</h1>
+            <div class="hero-buttons">
+                <button class="transparent-button">Men's</button>
+                <button class="transparent-button">Women's</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-story">
+        <div class="our-story-item">
+            <img src="assets/21.jpg" alt="Our Story">
+            <h3>Our Story</h3>
+            <button class="shop-all-button">Learn More</button>
+        </div>
+        <div class="our-story-item">
+            <img src="assets/22.png" alt="Pringle Cashmere">
+            <h3>Pringle Cashmere</h3>
+            <button class="shop-all-button">Learn More</button>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>NEWSLETTER</h2>
+        <p>Sign up to our newsletter to receive 10% off your first order and hear about our latest arrivals and exclusive events.</p>
+        <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your email">
+            <button type="submit" class="newsletter-button">→</button>
+        </form>
+    </section>
+
+    <div class="royal-warrant">
+        <img src="assets/queen.png" alt="Royal Warrant">
+    </div>
+
+    <nav class="footer-nav">
+        <ul>
+            <li><a href="#">OUR STORY</a></li>
+            <li><a href="#">ARCHIVE</a></li>
+            <li><a href="#">STOCKISTS</a></li>
+            <li><a href="#">CONTACT</a></li>
+            <li><a href="#">HELP</a></li>
+            <li><a href="#">CAREERS</a></li>
+            <li><a href="#">LEGAL</a></li>
+            <li><a href="#">SHIPPING</a></li>
+            <li><a href="#">RETURNS</a></li>
+            <li><a href="#">FACEBOOK</a></li>
+            <li><a href="#">INSTAGRAM</a></li>
+            <li><a href="#">SUSTAINABILITY</a></li>
+        </ul>
+    </nav>
+
+    <div class="social-icons">
+        <a href="#" aria-label="Facebook">
+            <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" viewBox="0 0 24 24">
+                <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0-2h10c3.866 0 7 3.134 7 7v10c0 3.866-3.134 7-7 7H7c-3.866 0-7-3.134-7-7V7C0 3.134 3.134 0 7 0zm5 6c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 2c2.206 0 4 1.794 4 4s-1.794 4-4 4-4-1.794-4-4 1.794-4 4-4zm5.5-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
+              </svg>              
+        </a>
+    </div>
+
+    <footer class="footer">
+        <a href="#">Refund Policy</a> . <a href="#">Privacy Policy</a> . <a href="#">Terms of Service</a> . <a href="#">Shipping Policy</a> . <a href="#">Contact Information</a>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>      
+</html>
