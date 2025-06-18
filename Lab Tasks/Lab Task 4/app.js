@@ -9,7 +9,6 @@ const connectDB = require('./config/database');
 const bcrypt = require('bcryptjs');
 const User = require('./models/User');
 
-// Import route modules
 const authRoutes = require('./routes/auth');
 const indexRoutes = require('./routes/index');
 const cartRoutes = require('./routes/cart');
@@ -31,7 +30,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: { 
         secure: process.env.NODE_ENV === 'production', 
-        maxAge: 24 * 60 * 60 * 1000 // 24 hours
+        maxAge: 24 * 60 * 60 * 1000 
     }
 }));
 
