@@ -1,0 +1,95 @@
+<div class="order-confirmation-section page-width">
+    <div class="order-confirmation-container">
+        <h1 class="order-confirmation-title">Order Placed Successfully!</h1>
+        <p class="order-confirmation-id">Your Order ID: <strong><%= order._id %></strong></p>
+        <p class="order-confirmation-message">Thank you for your purchase. You will receive an email with your order details soon.</p>
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <ul>
+                <% order.items.forEach(function(item) { %>
+                    <li>
+                        <strong><%= item.name %></strong> (Size: <%= item.size %>, Qty: <%= item.quantity %>) - <span class="js-price" data-pkr="<%= item.price %>"></span>
+                    </li>
+                <% }); %>
+            </ul>
+            <p><strong>Total:</strong> <span class="js-price" data-pkr="<%= order.total %>"></span></p>
+            <p><strong>Payment Method:</strong> <%= order.paymentMethod %> <% if(order.cardLast4) { %>(**** **** **** <%= order.cardLast4 %>)<% } %></p>
+        </div>
+        <a href="/" class="modern-btn">Return to Home</a>
+    </div>
+</div>
+<style>
+.order-confirmation-section {
+    padding: 3rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.order-confirmation-title {
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+.order-confirmation-id {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+.order-confirmation-message {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+.order-summary {
+    background: #fafbfc;
+    border-radius: 16px;
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    text-align: left;
+}
+.order-summary h3 {
+    margin-bottom: 1rem;
+    color: #222;
+}
+.order-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+.order-summary li {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+.modern-btn {
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 0.8rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    text-decoration: none;
+    display: inline-block;
+}
+.modern-btn:hover {
+    background: #444;
+    color: #fff;
+}
+</style>
+<script src="/js/currency.js"></script>
+<script>
+function updatePrices() {
+  var currency = window.currencyUtils.getCurrency();
+  document.querySelectorAll('.js-price').forEach(function(el) {
+    var pkr = parseFloat(el.getAttribute('data-pkr'));
+    el.textContent = window.currencyUtils.formatPrice(pkr, currency);
+  });
+}
+window.addEventListener('currencyChange', updatePrices);
+document.addEventListener('DOMContentLoaded', updatePrices);
+</script> 

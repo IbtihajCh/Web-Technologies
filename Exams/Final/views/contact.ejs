@@ -1,0 +1,76 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="mb-0 text-center">Contact Us</h2>
+                </div>
+                <div class="card-body">
+                    <% if (typeof success_msg !== 'undefined' && success_msg.length > 0) { %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <%= success_msg %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <% } %>
+                    <% if (typeof error_msg !== 'undefined' && error_msg.length > 0) { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <%= error_msg %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <% } %>
+
+                    <form action="/complaints" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="orderId" class="form-label">Select Order <span class="text-danger">*</span></label>
+                            <select class="form-select" id="orderId" name="orderId" required>
+                                <option value="">Choose an order...</option>
+                                <% if (orders && orders.length > 0) { %>
+                                    <% orders.forEach(order => { %>
+                                        <option value="<%= order._id %>">Order #<%= order._id.toString().slice(-8).toUpperCase() %></option>
+                                    <% }); %>
+                                <% } else { %>
+                                    <option value="" disabled>No orders found</option>
+                                <% } %>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select an order
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required
+                                placeholder="Please describe your issue or concern..." minlength="10" maxlength="1000"></textarea>
+                            <div class="invalid-feedback">
+                                Please enter a message (10-1000 characters)
+                            </div>
+                            <div class="form-text">
+                                Please provide detailed information about your issue. This will help us assist you better.
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-dark flex-grow-1">Submit Complaint</button>
+                            <a href="/complaints" class="btn btn-outline-dark flex-grow-1">View My Complaints</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Form validation
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+</script> 

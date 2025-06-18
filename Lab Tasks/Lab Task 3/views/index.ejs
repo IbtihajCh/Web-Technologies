@@ -1,0 +1,306 @@
+<div class="discount-banner">
+    <img src="/assets/discount.png" alt="Special Discount">
+</div>
+
+<section id="heroCarousel" class="carousel slide hero" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="hero-content">
+                <h1>Timeless Cashmere Collection</h1>
+                <div class="hero-buttons">
+                    <a href="/products/women" class="shop-button">Shop Women</a>
+                    <a href="/products/men" class="shop-button">Shop Men</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="hero-content">
+                <h1>Men's Lambwool Collection</h1>
+                <div class="hero-buttons">
+                    <button class="shop-button">Men's Knitwear</button>
+                    <button class="shop-button">Men's Accessories</button>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="hero-content">
+                <h1>Iconic Argyle</h1>
+                <button class="transparent-button">Explore the Collection</button>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</section>
+
+<section class="featured-section">
+    <div class="featured-content">
+        <h2>We Love Cashmere</h2>
+        <p>Explore classic designs and new Autumn hues of our Cashmere collection. Extremely soft to touch this collection offers timeless yet modern staples that are essential to your wardrobe.</p>
+        <a href="/products/men" class="shop-all-button">Men's New Arrivals</a>
+    </div>
+    <div class="featured-image">
+        <img src="/assets/2.jpg" alt="Cashmere Collection">
+    </div>
+</section>
+
+<section class="products-section">
+    <h2 class="products-heading">Men's New Arrivals</h2>
+    <div class="products-grid">
+        <% products.men.slice(0, 4).forEach(function(product) { %>
+            <div class="product-card">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+                <h3 class="product-title"><%= product.name %></h3>
+                <p class="product-price"><%= product.price %></p>
+            </div>
+        <% }); %>
+    </div>
+    <a href="/products/men" class="shop-all-button">Shop</a>
+</section>
+
+<section class="heritage-section">
+    <div class="featured-content">
+        <h2>Refined and effortless elegance since 1815</h2>
+        <p>We believe our cashmere collection is one of the most beautiful and luxurious garments you can wear, and we are proud to have nurtured and developed our knitting legacy since 1815.</p>
+        <a href="/products/women" class="shop-all-button">Shop Women's</a>
+    </div>
+    <div class="featured-image">
+        <img src="/assets/7.jpg" alt="Heritage Collection">
+    </div>
+</section>
+
+<section class="products-section">
+    <h2 class="products-heading">Women's New Arrivals</h2>
+    <div class="products-grid">
+        <% products.women.slice(0, 4).forEach(function(product) { %>
+            <div class="product-card">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+                <h3 class="product-title"><%= product.name %></h3>
+                <p class="product-price"><%= product.price %></p>
+            </div>
+        <% }); %>
+    </div>
+    <a href="/products/women" class="shop-all-button">Shop</a>
+</section>
+
+<div class="discount-banner">
+    <img src="/assets/discount.png" alt="Special Discount">
+</div>
+
+<section class="lambswool-hero">
+    <div class="hero-content">
+        <h1>Men's Lambwool Collection</h1>
+        <div class="hero-buttons">
+            <button class="shop-button">Men's Knitwear</button>
+            <button class="shop-button">Men's Accessories</button>
+        </div>
+    </div>
+</section>
+
+<section class="essential-section">
+    <h2 class="essential-heading">Essential Lambswool</h2>
+    <div class="products-grid">
+        <% products.men.slice(4, 8).forEach(function(product) { %>
+            <div class="product-card">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+                <h3 class="product-title"><%= product.name %></h3>
+                <p class="product-price"><%= product.price %></p>
+            </div>
+        <% }); %>
+    </div>
+    <a href="/products/men" class="shop-all-button">Shop</a>
+</section>
+
+<section class="iconic-argyle">
+    <div class="hero-content">
+        <h1>Iconic Argyle</h1>
+        <button class="transparent-button">Explore the Collection</button>
+    </div>
+</section>
+
+<section class="made-in-scotland">
+    <div class="made-in-scotland-item">
+        <img src="/assets/18.jpg" alt="Women's Made in Scotland">
+        <h3>Women's Made in Scotland</h3>
+        <a href="/products/women" class="shop-all-button">Shop</a>
+    </div>
+    <div class="made-in-scotland-item">
+        <img src="/assets/19.jpg" alt="Men's Made in Scotland">
+        <h3>Men's Made in Scotland</h3>
+        <a href="/products/men" class="shop-all-button">Shop</a>
+    </div>
+</section>
+
+<section class="explore-knitwear">
+    <div class="hero-content">
+        <h1>Explore all knitwear</h1>
+        <div class="hero-buttons">
+            <a href="/products/men" class="transparent-button">Men's</a>
+            <a href="/products/women" class="transparent-button">Women's</a>
+        </div>
+    </div>
+</section>
+
+<section class="our-story">
+    <div class="our-story-item">
+        <img src="/assets/21.jpg" alt="Our Story">
+        <h3>Our Story</h3>
+        <a href="/about" class="shop-all-button">Learn More</a>
+    </div>
+    <div class="our-story-item">
+        <img src="/assets/22.png" alt="Pringle Cashmere">
+        <h3>Pringle Cashmere</h3>
+        <a href="/about" class="shop-all-button">Learn More</a>
+    </div>
+</section>
+
+<section class="newsletter">
+    <h2>NEWSLETTER</h2>
+    <p>Sign up to our newsletter to receive 10% off your first order and hear about our latest arrivals and exclusive events.</p>
+    <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Enter your email">
+        <button type="submit" class="newsletter-button">→</button>
+    </form>
+</section>
+
+<!-- Checkout Modal -->
+<div class="modal-overlay" id="checkoutModal">
+    <div class="login-modal">
+        <button class="close-modal" id="closeCheckout">&times;</button>
+        <h2>Checkout</h2>
+        <form class="modal-form active" id="checkoutForm" novalidate>
+            <div class="form-group">
+                <label for="checkoutName">Full Name</label>
+                <input type="text" id="checkoutName" required pattern="[A-Za-z ]+">
+                <span class="error-message">Please enter a valid name (letters only)</span>
+            </div>
+            <div class="form-group">
+                <label for="checkoutEmail">Email</label>
+                <input type="email" id="checkoutEmail" required>
+                <span class="error-message">Please enter a valid email address</span>
+            </div>
+            <div class="form-group">
+                <label for="checkoutPhone">Phone Number</label>
+                <input type="tel" id="checkoutPhone" required pattern="[0-9]{10,12}">
+                <span class="error-message">Please enter a valid phone number (10-12 digits)</span>
+            </div>
+            <div class="form-group">
+                <label for="checkoutAddress">Address</label>
+                <input type="text" id="checkoutAddress" required>
+                <span class="error-message">Please enter your address</span>
+            </div>
+            <div class="form-group">
+                <label for="checkoutCard">Credit Card Number</label>
+                <input type="text" id="checkoutCard" required pattern="[0-9]{16}" maxlength="16">
+                <span class="error-message">Please enter a valid 16-digit card number</span>
+            </div>
+            <div class="form-group">
+                <label for="checkoutExpiry">Card Expiry Date</label>
+                <input type="month" id="checkoutExpiry" required>
+                <span class="error-message">Please enter a valid future date</span>
+            </div>
+            <div class="form-group">
+                <label for="checkoutCVV">CVV</label>
+                <input type="text" id="checkoutCVV" required pattern="[0-9]{3}" maxlength="3">
+                <span class="error-message">Please enter a valid 3-digit CVV</span>
+            </div>
+            <button type="submit" class="form-submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const checkoutForm = document.getElementById('checkoutForm');
+    const checkoutModal = document.getElementById('checkoutModal');
+    const closeCheckoutModal = document.getElementById('closeCheckout');
+    const cartButton = document.querySelector('.header__icon--cart');
+
+    cartButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        checkoutModal.style.display = 'block';
+    });
+
+    function closeModalAndResetForm() {
+        checkoutModal.style.display = 'none';
+        checkoutForm.reset();
+        document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
+    }
+
+    closeCheckoutModal.addEventListener('click', closeModalAndResetForm);
+
+    window.addEventListener('click', function (event) {
+        if (event.target === checkoutModal) {
+            closeModalAndResetForm();
+        }
+    });
+
+    function validateForm(formId) {
+        const form = document.getElementById(formId);
+        const inputs = form.querySelectorAll('input');
+        let valid = true;
+
+        inputs.forEach(input => {
+            const errorSpan = input.nextElementSibling;
+            errorSpan.style.display = 'none';
+
+            if (input.type === 'email') {
+                const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!emailPattern.test(input.value)) {
+                    errorSpan.textContent = "Please enter a valid email address.";
+                    errorSpan.style.display = 'block';
+                    valid = false;
+                }
+            }
+
+            if (input.type === 'tel') {
+                const phonePattern = /^[0-9]{10,12}$/;
+                if (!phonePattern.test(input.value)) {
+                    errorSpan.textContent = "Please enter a valid phone number (10-12 digits).";
+                    errorSpan.style.display = 'block';
+                    valid = false;
+                }
+            }
+
+            if (!input.checkValidity()) {
+                errorSpan.style.display = 'block';
+                valid = false;
+            }
+        });
+
+        return valid;
+    }
+
+    function showOrderConfirmation() {
+        const popup = document.createElement('div');
+        popup.textContent = "🎉 Order Placed Successfully!";
+        popup.style.position = 'fixed';
+        popup.style.top = '20px';
+        popup.style.left = '50%';
+        popup.style.transform = 'translateX(-50%)';
+        popup.style.backgroundColor = '#28a745';
+        popup.style.color = '#fff';
+        popup.style.padding = '20px';
+        popup.style.borderRadius = '8px';
+        popup.style.fontSize = '16px';
+        popup.style.zIndex = '9999';
+        document.body.appendChild(popup);
+
+        setTimeout(() => {
+            popup.remove();
+        }, 3000);
+    }
+
+    checkoutForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (validateForm('checkoutForm')) {
+            showOrderConfirmation();
+            closeModalAndResetForm();
+        }
+    });
+</script> 

@@ -1,0 +1,268 @@
+<div class="page-width">
+    <div class="my-orders-container">
+        <h1 class="page-title">My Orders</h1>
+        
+        <% if (orders && orders.length > 0) { %>
+            <div class="orders-table-container">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% orders.forEach(order => { %>
+                            <tr class="order-row">
+                                <td class="order-id">
+                                    <span class="order-number">#<%= order._id.toString().slice(-8).toUpperCase() %></span>
+                                </td>
+                                <td class="order-date">
+                                    <%= new Date(order.createdAt).toLocaleDateString('en-GB', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    }) %>
+                                </td>
+                                <td class="order-items">
+                                    <div class="items-list">
+                                        <% order.items.forEach(item => { %>
+                                            <div class="item">
+                                                <span class="item-name"><%= item.name %></span>
+                                                <span class="item-quantity">x<%= item.quantity %></span>
+                                                <span class="item-price">£<%= item.price.toFixed(2) %></span>
+                                            </div>
+                                        <% }) %>
+                                    </div>
+                                </td>
+                                <td class="order-total">
+                                    <strong>£<%= order.totalPrice.toFixed(2) %></strong>
+                                </td>
+                                <td class="order-status">
+                                    <span class="status-badge status-<%= order.status %>">
+                                        <%= order.status.charAt(0).toUpperCase() + order.status.slice(1) %>
+                                    </span>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% } else { %>
+            <div class="no-orders">
+                <div class="no-orders-content">
+                    <svg class="no-orders-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"/>
+                        <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"/>
+                        <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"/>
+                        <path d="M12 3c0 1-1 2-2 2s-2-1-2-2 1-2 2-2 2 1 2 2z"/>
+                        <path d="M12 21c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2z"/>
+                    </svg>
+                    <h2>No Orders Found</h2>
+                    <p>You haven't placed any orders yet. Start shopping to see your order history here.</p>
+                    <a href="/products/men" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<style>
+.my-orders-container {
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+}
+
+.orders-table-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.orders-table th {
+    background: #f8f9fa;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.orders-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f3f4;
+    vertical-align: top;
+}
+
+.order-row:hover {
+    background: #f8f9fa;
+}
+
+.order-number {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: #007bff;
+}
+
+.order-date {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+}
+
+.item-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.item-quantity {
+    color: #6c757d;
+    margin: 0 0.5rem;
+}
+
+.item-price {
+    font-weight: 500;
+    color: #28a745;
+}
+
+.order-total {
+    font-size: 1.1rem;
+    color: #28a745;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-processing {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-shipped {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-delivered {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.no-orders {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.no-orders-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.no-orders-icon {
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.no-orders h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.no-orders p {
+    color: #6c757d;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .orders-table {
+        font-size: 0.8rem;
+    }
+    
+    .orders-table th,
+    .orders-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+}
+</style> 

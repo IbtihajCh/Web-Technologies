@@ -1,0 +1,47 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <h2 class="mb-0">My Complaints</h2>
+                    <a href="/contact" class="btn btn-dark">New Complaint</a>
+                </div>
+                <div class="card-body">
+                    <% if (complaints.length === 0) { %>
+                        <div class="text-center py-4">
+                            <p class="mb-0">You haven't submitted any complaints yet.</p>
+                            <a href="/contact" class="btn btn-dark mt-3">Submit a Complaint</a>
+                        </div>
+                    <% } else { %>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover align-middle">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Order</th>
+                                        <th>Message</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% complaints.forEach(c => { %>
+                                        <tr>
+                                            <td>Order #<%= c.orderId && c.orderId._id ? c.orderId._id.toString().slice(-8).toUpperCase() : 'N/A' %></td>
+                                            <td><%= c.message %></td>
+                                            <td>
+                                                <span class="badge badge-pill <%= c.status === 'pending' ? 'badge-warning' : c.status === 'in-progress' ? 'badge-info' : 'badge-success' %>">
+                                                    <%= c.status.charAt(0).toUpperCase() + c.status.slice(1) %>
+                                                </span>
+                                            </td>
+                                            <td><%= c.timestamp.toLocaleString() %></td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

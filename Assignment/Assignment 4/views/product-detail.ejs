@@ -1,0 +1,207 @@
+<div class="product-detail-section page-width">
+    <div class="product-detail-container">
+        <div class="product-detail-image">
+            <img src="<%= product.image %>" alt="<%= product.name %>">
+        </div>
+        <div class="product-detail-info">
+            <h1 class="product-detail-title"><%= product.name %></h1>
+            <p class="product-detail-price"><span class="js-price" data-pkr="<%= product.price %>"></span></p>
+            <div class="product-detail-description">
+                <h3>Description</h3>
+                <p><%= product.description %></p>
+            </div>
+            <form action="/cart/add/<%= product._id %>" method="POST" class="add-to-cart-form" id="addToCartForm">
+                <div class="form-group">
+                    <label for="size">Size:</label>
+                    <div class="size-options">
+                        <% product.sizes.forEach(function(size) { %>
+                            <label class="size-label">
+                                <input type="radio" name="size" value="<%= size %>" required>
+                                <span><%= size %></span>
+                            </label>
+                        <% }); %>
+                    </div>
+                    <span class="error-message" id="sizeError" style="display:none;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name="quantity" id="quantity" value="1" min="1" max="99" class="quantity-input">
+                </div>
+                <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/currency.js"></script>
+<script>
+document.getElementById('addToCartForm').addEventListener('submit', function(e) {
+    const sizeRadios = document.querySelectorAll('input[name="size"]');
+    let sizeSelected = false;
+    for (const radio of sizeRadios) {
+        if (radio.checked) {
+            sizeSelected = true;
+            break;
+        }
+    }
+    const errorSpan = document.getElementById('sizeError');
+    if (!sizeSelected) {
+        errorSpan.textContent = 'Please select a size before adding to cart.';
+        errorSpan.style.display = 'block';
+        e.preventDefault();
+    } else {
+        errorSpan.textContent = '';
+        errorSpan.style.display = 'none';
+    }
+});
+
+function updatePrice() {
+  var currency = window.currencyUtils.getCurrency();
+  var el = document.querySelector('.js-price');
+  if (el) {
+    var pkr = parseFloat(el.getAttribute('data-pkr'));
+    el.textContent = window.currencyUtils.formatPrice(pkr, currency);
+  }
+}
+window.addEventListener('currencyChange', updatePrice);
+document.addEventListener('DOMContentLoaded', updatePrice);
+</script>
+
+<style>
+.product-detail-section {
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.product-detail-container {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+.product-detail-image img {
+    width: 400px;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.product-detail-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.product-detail-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.product-detail-price {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.add-to-cart-form {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.size-options {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.size-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    font-weight: 500;
+    transition: all 0.2s;
+    min-width: 50px;
+    text-align: center;
+    position: relative;
+}
+.size-label input[type="radio"] {
+    display: none;
+}
+.size-label input[type="radio"]:checked + span {
+    font-weight: 700;
+    color: #333;
+}
+.size-label input[type="radio"]:checked {
+    border-color: #333;
+}
+.size-label span {
+    display: inline-block;
+    color: #333;
+    transition: all 0.2s;
+}
+.size-label:hover {
+    background: #e9ecef;
+    border-color: #b3b3b3;
+}
+.quantity-input {
+    width: 60px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+}
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.add-to-cart-btn:hover {
+    background: #555;
+}
+.cart-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+.product-detail-description {
+    margin-top: 2rem;
+}
+.product-detail-description h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.product-detail-description p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+@media (max-width: 900px) {
+    .product-detail-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .product-detail-image img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+</style> 

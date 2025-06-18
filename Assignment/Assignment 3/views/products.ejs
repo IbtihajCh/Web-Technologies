@@ -1,0 +1,13 @@
+<div class="products-section">
+    <h2 class="products-heading"><%= category === 'men' ? "Men's Collection" : "Women's Collection" %></h2>
+    <div class="products-grid">
+        <% products.forEach(function(product) { %>
+            <div class="product-card">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+                <h3 class="product-title"><%= product.name %></h3>
+                <p class="product-price"><%= product.price %></p>
+            </div>
+        <% }); %>
+    </div>
+    <a href="/" class="shop-all-button">Back to Home</a>
+</div> 

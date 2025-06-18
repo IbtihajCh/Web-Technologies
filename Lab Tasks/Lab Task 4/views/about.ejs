@@ -1,0 +1,198 @@
+<section class="our-world-section">
+    <h2 class="our-world-title">Our World</h2>
+    <div class="our-world-grid">
+        <div class="our-story-card">
+            <div class="our-story-img-wrap">
+                <img src="/assets/21.jpg" alt="Our Story">
+            </div>
+            <div class="our-story-content">
+                <h3>Our Story</h3>
+                <p>Discover the rich heritage and legacy of Pringle of Scotland, a brand synonymous with luxury knitwear since 1815. Our journey began in the Scottish Borders, where tradition meets innovation in every stitch.</p>
+            </div>
+        </div>
+        <div class="our-story-card">
+            <div class="our-story-img-wrap">
+                <img src="/assets/22.png" alt="Pringle Cashmere">
+            </div>
+            <div class="our-story-content">
+                <h3>Pringle Cashmere</h3>
+                <p>Our cashmere is sourced and crafted with the utmost care, ensuring the highest quality and comfort for our customers. Each piece is a testament to our commitment to excellence and timeless style.</p>
+            </div>
+        </div>
+        <div class="our-story-card">
+            <div class="our-story-img-wrap">
+                <img src="/assets/18.jpg" alt="Craftsmanship">
+            </div>
+            <div class="our-story-content">
+                <h3>Craftsmanship</h3>
+                <p>Made in Scotland, our garments reflect a tradition of excellence and a commitment to sustainable practices. Our artisans blend time-honored techniques with modern design for truly unique knitwear.</p>
+            </div>
+        </div>
+        <div class="our-story-card">
+            <div class="our-story-img-wrap">
+                <img src="/assets/19.jpg" alt="Sustainability">
+            </div>
+            <div class="our-story-content">
+                <h3>Sustainability</h3>
+                <p>We are dedicated to circularity and responsible production, ensuring our knitwear is as sustainable as it is stylish. Our eco-conscious approach shapes every collection.</p>
+            </div>
+        </div>
+        <div class="our-story-card">
+            <div class="our-story-img-wrap">
+                <img src="/assets/13.jpg" alt="Innovation">
+            </div>
+            <div class="our-story-content">
+                <h3>Innovation</h3>
+                <p>From pioneering the twinset to introducing bold new patterns, Pringle of Scotland has always been at the forefront of knitwear innovation. We continue to push boundaries in design and technology.</p>
+            </div>
+        </div>
+        <div class="our-story-card">
+            <div class="our-story-img-wrap">
+                <img src="/assets/queen.png" alt="Iconic Argyle">
+            </div>
+            <div class="our-story-content">
+                <h3>Iconic Argyle</h3>
+                <p>Our signature Argyle pattern is recognized worldwide, symbolizing both heritage and modernity. It remains a staple in our collections, beloved by royalty and fashion icons alike.</p>
+            </div>
+        </div>
+        <div class="our-story-card">
+            <div class="our-story-img-wrap">
+                <img src="/assets/4.png" alt="Community">
+            </div>
+            <div class="our-story-content">
+                <h3>Community</h3>
+                <p>We believe in giving back. Our community initiatives support local artisans, promote sustainable livelihoods, and celebrate the culture of Scotland.</p>
+            </div>
+        </div>
+    </div>
+    <blockquote class="our-world-quote">“Luxury is in each detail.” <span>– Hubert de Givenchy</span></blockquote>
+    <div class="our-world-cta">
+        <h4>Experience the world of Pringle</h4>
+        <p>Explore our collections and discover the craftsmanship, innovation, and heritage that define us.</p>
+        <a href="/products/men" class="shop-all-button">Shop Men</a>
+        <a href="/products/women" class="shop-all-button">Shop Women</a>
+    </div>
+    <a href="/" class="shop-all-button">Back to Home</a>
+</section>
+
+<style>
+.our-world-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem 4rem 1rem;
+    text-align: center;
+}
+.our-world-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: #222;
+    letter-spacing: 1.5px;
+}
+.our-world-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+.our-story-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+.our-story-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+}
+.our-story-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f7f7f7;
+}
+.our-story-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s;
+}
+.our-story-card:hover .our-story-img-wrap img {
+    transform: scale(1.04);
+}
+.our-story-content {
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    background: #fff;
+    text-align: left;
+}
+.our-story-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #181818;
+    margin-bottom: 0.7rem;
+}
+.our-story-content p {
+    color: #444;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+.our-world-quote {
+    font-size: 1.3rem;
+    color: #555;
+    margin: 2.5rem auto 2rem auto;
+    font-style: italic;
+    max-width: 600px;
+    border-left: 4px solid #181818;
+    padding-left: 1.2rem;
+    background: #fafbfc;
+    border-radius: 8px;
+}
+.our-world-quote span {
+    display: block;
+    font-size: 1rem;
+    color: #888;
+    margin-top: 0.5rem;
+    font-style: normal;
+}
+.our-world-cta {
+    margin: 2.5rem 0 2rem 0;
+    background: #f7f7f7;
+    border-radius: 16px;
+    padding: 2.2rem 1.5rem 2.5rem 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.our-world-cta h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.7rem;
+}
+.our-world-cta p {
+    color: #555;
+    font-size: 1.08rem;
+    margin-bottom: 1.2rem;
+}
+.our-world-cta .shop-all-button {
+    margin: 0 0.5rem 0 0;
+    font-size: 1.05rem;
+    padding: 0.7rem 2.1rem;
+}
+@media (max-width: 700px) {
+    .our-world-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .our-story-img-wrap {
+        height: 160px;
+    }
+}
+</style> 

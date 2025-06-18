@@ -1,0 +1,257 @@
+<div class="discount-banner">
+    <img src="/assets/discount.png" alt="Special Discount">
+</div>
+
+<section id="heroCarousel" class="carousel slide hero" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="hero-content">
+                <h1>Timeless Cashmere Collection</h1>
+                <p>Experience the ultimate in luxury and comfort with our new season cashmere. Crafted in Scotland, designed for the world.</p>
+                <div class="hero-buttons">
+                    <a href="/products/women" class="shop-button">Shop Women</a>
+                    <a href="/products/men" class="shop-button">Shop Men</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="hero-content">
+                <h1>Men's Lambwool Collection</h1>
+                <p>Discover the warmth and durability of our lambswool knits, perfect for layering through the seasons.</p>
+                <div class="hero-buttons">
+                    <a href="/products/men" class="shop-button">Men's Knitwear</a>
+                    <a href="/products/men" class="shop-button">Men's Accessories</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="hero-content">
+                <h1>Iconic Argyle</h1>
+                <p>The legendary Argyle pattern, reimagined for today. A symbol of heritage and modern style.</p>
+                <a href="/about" class="transparent-button">Explore the Collection</a>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</section>
+
+<section class="featured-section">
+    <div class="featured-content">
+        <h2>We Love Cashmere</h2>
+        <p>Explore classic designs and new Autumn hues of our Cashmere collection. Extremely soft to touch this collection offers timeless yet modern staples that are essential to your wardrobe.</p>
+        <a href="/products/men" class="shop-all-button">Men's New Arrivals</a>
+    </div>
+    <div class="featured-image">
+        <img src="/assets/2.jpg" alt="Cashmere Collection">
+    </div>
+</section>
+
+<section class="products-section">
+    <h2 class="products-heading">Men's New Arrivals</h2>
+    <div class="products-grid">
+        <% products.men.slice(0, 4).forEach(function(product) { %>
+            <div class="product-card">
+                <a href="/products/<%= product._id %>" class="product-link">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                    <h3 class="product-title"><%= product.title %></h3>
+                    <p class="product-price"><span class="js-price" data-pkr="<%= product.price %>"></span></p>
+                </a>
+            </div>
+        <% }); %>
+    </div>
+    <a href="/products/men" class="shop-all-button">Shop</a>
+</section>
+
+<section class="heritage-section">
+    <div class="featured-content">
+        <h2>Refined and effortless elegance since 1815</h2>
+        <p>We believe our cashmere collection is one of the most beautiful and luxurious garments you can wear, and we are proud to have nurtured and developed our knitting legacy since 1815.</p>
+        <a href="/products/women" class="shop-all-button">Shop Women's</a>
+    </div>
+    <div class="featured-image">
+        <img src="/assets/7.jpg" alt="Heritage Collection">
+    </div>
+</section>
+
+<section class="products-section">
+    <h2 class="products-heading">Women's New Arrivals</h2>
+    <div class="products-grid">
+        <% products.women.slice(0, 4).forEach(function(product) { %>
+            <div class="product-card">
+                <a href="/products/<%= product._id %>" class="product-link">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                    <h3 class="product-title"><%= product.title %></h3>
+                    <p class="product-price"><span class="js-price" data-pkr="<%= product.price %>"></span></p>
+                </a>
+            </div>
+        <% }); %>
+    </div>
+    <a href="/products/women" class="shop-all-button">Shop</a>
+</section>
+
+<div class="discount-banner">
+    <img src="/assets/discount.png" alt="Special Discount">
+</div>
+
+<section class="lambswool-hero">
+    <div class="hero-content">
+        <h1>Men's Lambwool Collection</h1>
+        <p>Our lambswool is sourced from the finest flocks, spun and dyed in Scotland for unmatched softness and color. Each piece is a blend of tradition and innovation.</p>
+        <div class="hero-buttons">
+            <a href="/products/men" class="shop-button">Shop Lambswool</a>
+            <a href="/about" class="transparent-button">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section class="essential-section">
+    <h2 class="essential-heading">Essential Lambswool</h2>
+    <div class="products-grid">
+        <% products.men.slice(4, 8).forEach(function(product) { %>
+            <div class="product-card">
+                <a href="/products/<%= product._id %>" class="product-link">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                    <h3 class="product-title"><%= product.title %></h3>
+                    <p class="product-price"><span class="js-price" data-pkr="<%= product.price %>"></span></p>
+                </a>
+            </div>
+        <% }); %>
+    </div>
+    <a href="/products/men" class="shop-all-button">Shop</a>
+</section>
+
+<section class="iconic-argyle">
+    <div class="hero-content">
+        <h1>Iconic Argyle</h1>
+        <p>Worn by royalty and rebels alike, our Argyle knitwear is a statement of individuality and timeless taste.</p>
+        <a href="/about" class="transparent-button">Discover Argyle</a>
+    </div>
+</section>
+
+<section class="made-in-scotland">
+    <div class="made-in-scotland-item">
+        <img src="/assets/18.jpg" alt="Women's Made in Scotland">
+        <h3>Women's Made in Scotland</h3>
+        <p>Every garment is crafted in the heart of Scotland, using skills passed down through generations. Our women's collection celebrates both heritage and contemporary design.</p>
+        <a href="/products/women" class="shop-all-button">Shop</a>
+    </div>
+    <div class="made-in-scotland-item">
+        <img src="/assets/19.jpg" alt="Men's Made in Scotland">
+        <h3>Men's Made in Scotland</h3>
+        <p>From classic jumpers to modern accessories, our men's range is made with pride and precision in Scotland.</p>
+        <a href="/products/men" class="shop-all-button">Shop</a>
+    </div>
+</section>
+
+<section class="explore-knitwear">
+    <div class="hero-content">
+        <h1>Explore all knitwear</h1>
+        <p>From chunky cable knits to lightweight layers, our full knitwear range has something for every season and style.</p>
+        <div class="hero-buttons">
+            <a href="/products/men" class="transparent-button">Men's</a>
+            <a href="/products/women" class="transparent-button">Women's</a>
+        </div>
+    </div>
+</section>
+
+<section class="our-story">
+    <div class="our-story-item">
+        <img src="/assets/21.jpg" alt="Our Story">
+        <h3>Our Story</h3>
+        <a href="/about" class="shop-all-button">Learn More</a>
+    </div>
+    <div class="our-story-item">
+        <img src="/assets/22.png" alt="Pringle Cashmere">
+        <h3>Pringle Cashmere</h3>
+        <a href="/about" class="shop-all-button">Learn More</a>
+    </div>
+</section>
+
+<section class="newsletter">
+    <h2>NEWSLETTER</h2>
+    <p>Sign up to our newsletter to receive 10% off your first order, exclusive previews, and behind-the-scenes stories from Pringle of Scotland.</p>
+    <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Enter your email">
+        <button type="submit" class="newsletter-button">→</button>
+    </form>
+</section>
+
+<!-- Pringle Legacy Section -->
+<section class="pringle-legacy" style="max-width: 900px; margin: 0 auto 3rem auto; text-align: center;">
+    <h2 style="font-size: 2rem; color: #222; margin-bottom: 1rem;">A Legacy of Innovation</h2>
+    <p style="color: #444; font-size: 1.1rem;">Since 1815, Pringle of Scotland has been a pioneer in knitwear, introducing the world to the twinset, Argyle, and countless other innovations. Our legacy is built on a passion for quality, creativity, and the spirit of Scotland.</p>
+</section>
+
+<style>
+/* New styles for product links to remove underline on hover */
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Make the whole card clickable */
+}
+
+.product-link:hover .product-title {
+    text-decoration: none; /* Remove underline on hover */
+}
+
+/* Existing product card styles */
+.product-card {
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.product-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: rgba(var(--color-foreground), 0.9);
+    line-height: 1.4;
+}
+
+.product-price {
+    font-size: 14px;
+    color: rgba(var(--color-foreground), 0.75);
+}
+
+/* Existing hover effects (if any, ensure they are compatible) */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.product-card:hover img {
+    transform: scale(1.03);
+}
+
+.product-card:hover .product-title,
+.product-card:hover .product-price {
+    color: #333; /* Or your preferred hover color */
+}
+</style>
+
+<!-- Removed modal and cart icon JS to ensure cart icon works as a link on homepage -->
+<script src="/js/currency.js"></script>
+<script>
+function updatePrices() {
+  var currency = window.currencyUtils.getCurrency();
+  document.querySelectorAll('.js-price').forEach(function(el) {
+    var pkr = parseFloat(el.getAttribute('data-pkr'));
+    el.textContent = window.currencyUtils.formatPrice(pkr, currency);
+  });
+}
+window.addEventListener('currencyChange', updatePrices);
+document.addEventListener('DOMContentLoaded', updatePrices);
+</script> 

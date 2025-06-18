@@ -1,0 +1,130 @@
+<header class="header page-width">
+    <div class="header-container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="black" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <div class="logo">
+            <a href="/">
+                <img src="/assets/logo.png" alt="Pringle of Scotland">
+            </a>
+        </div>
+        
+        <div class="icons">
+            <div class="region-currency">
+                <select class="dropdown">
+                    <option value="UK-GBP">UK | GBP</option>
+                    <option value="EU-EUR">EU | EUR</option>
+                    <option value="US-USD">US | USD</option>
+                </select>
+            </div>
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="Search" role="button">
+                <span>
+                    <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false">
+                        <use href="#icon-search"></use>
+                    </svg>
+                    <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
+                        <use href="#icon-close"></use>
+                    </svg>
+                </span>
+            </summary>
+            <% if (user) { %>
+                <div class="header__icon header__icon--account link focus-inset user-dropdown-container">
+                    <button id="userDropdownBtn" class="user-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+                        <svg class="icon icon-account" aria-hidden="true" focusable="false">
+                            <use href="#icon-account"></use>
+                        </svg>
+                    </button>
+                    <div id="userDropdownMenu" class="user-dropdown-menu">
+                        <div class="user-dropdown-name"><%= user.name %></div>
+                        <a href="/my-orders" class="user-dropdown-link">My Orders</a>
+                        <a href="/logout" class="user-dropdown-link">Logout</a>
+                    </div>
+                </div>
+            <% } else { %>
+                <a href="/login" class="header__icon header__icon--account link focus-inset">
+                    <svg class="icon icon-account" aria-hidden="true" focusable="false">
+                        <use href="#icon-account"></use>
+                    </svg>
+                    <span class="visually-hidden">Log in</span>
+                </a>
+            <% } %>
+            <a href="#" class="header__icon header__icon--cart link focus-inset">
+                <svg class="icon icon-cart-empty" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+                    <path d="m15.75 11.8h-3.16l-.77 11.6a5 5 0 0 0 4.99 5.34h7.38a5 5 0 0 0 4.99-5.33l-.78-11.61zm0 1h-2.22l-.71 10.67a4 4 0 0 0 3.99 4.27h7.38a4 4 0 0 0 4-4.27l-.72-10.67h-2.22v.63a4.75 4.75 0 1 1 -9.5 0zm8.5 0h-7.5v.63a3.75 3.75 0 1 0 7.5 0z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+                <span class="visually-hidden">Bag</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<style>
+.user-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+.user-dropdown-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+.user-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 120%;
+    min-width: 160px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 100;
+    padding: 0.5rem 0;
+    text-align: left;
+}
+.user-dropdown-menu .user-dropdown-name {
+    font-weight: 600;
+    padding: 0.75rem 1.25rem 0.5rem 1.25rem;
+    color: #333;
+    border-bottom: 1px solid #f1f1f1;
+}
+.user-dropdown-link {
+    display: block;
+    padding: 0.5rem 1.25rem;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.user-dropdown-link:hover {
+    background: #f8f9fa;
+}
+.user-dropdown-container.open .user-dropdown-menu {
+    display: block;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('userDropdownBtn');
+    var menu = document.getElementById('userDropdownMenu');
+    var container = btn && btn.closest('.user-dropdown-container');
+    if (btn && menu && container) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            container.classList.toggle('open');
+            btn.setAttribute('aria-expanded', container.classList.contains('open'));
+        });
+        document.addEventListener('click', function(e) {
+            if (!container.contains(e.target)) {
+                container.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+});
+</script> 

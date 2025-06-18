@@ -1,0 +1,36 @@
+{
+  "name": "pringle-scotland-ecommerce",
+  "version": "1.0.0",
+  "description": "Pringle of Scotland E-commerce website with Express.js and authentication",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "seed": "node scripts/seedDatabase.js",
+    "create-orders": "node scripts/createSampleOrders.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ejs": "^3.1.9",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.0.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "express",
+    "ejs",
+    "ecommerce",
+    "authentication",
+    "mongodb"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

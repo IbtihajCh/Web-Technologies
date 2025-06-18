@@ -1,0 +1,36 @@
+<%- include('../partials/flash', { success: success, error: error }) %>
+<div class="container mt-4">
+    <h2>Admin - Products</h2>
+    <a href="/admin/products/add" class="btn btn-success mb-3">Add Product</a>
+    <% if (products.length === 0) { %>
+        <div class="alert alert-info">No products found.</div>
+    <% } else { %>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(function(product) { %>
+                <tr>
+                    <td><%= product.title %></td>
+                    <td>Rs <%= product.price %></td>
+                    <td><%= product.description %></td>
+                    <td><img src="<%= product.imageUrl %>" alt="<%= product.title %>" style="width:80px;"></td>
+                    <td>
+                        <a href="/admin/products/edit/<%= product._id %>" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this product?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } %>
+</div> 

@@ -1,0 +1,32 @@
+<% let shown = false; %>
+<% if (!shown && success_msg && typeof success_msg === 'string' && success_msg.trim().length > 0) { shown = true; %>
+    <div class="custom-flash custom-flash-success" role="alert">
+        <%= success_msg %>
+        <button type="button" class="custom-flash-close" aria-label="Close" onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<% } else if (!shown && typeof success !== 'undefined' && success && typeof success === 'string' && success.trim().length > 0) { shown = true; %>
+    <div class="custom-flash custom-flash-success" role="alert">
+        <%= success %>
+        <button type="button" class="custom-flash-close" aria-label="Close" onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<% } %>
+<% if (!shown && error_msg && typeof error_msg === 'string' && error_msg.trim().length > 0) { shown = true; %>
+    <div class="custom-flash custom-flash-error" role="alert">
+        <%= error_msg %>
+        <button type="button" class="custom-flash-close" aria-label="Close" onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<% } else if (!shown && typeof error !== 'undefined' && error && typeof error === 'string' && error.trim().length > 0) { shown = true; %>
+    <div class="custom-flash custom-flash-error" role="alert">
+        <%= error %>
+        <button type="button" class="custom-flash-close" aria-label="Close" onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<% } %>
+<script>
+  // Auto-dismiss flash after 3 seconds
+  setTimeout(function() {
+    document.querySelectorAll('.custom-flash').forEach(function(el) {
+      el.style.opacity = '0';
+      setTimeout(function() { el.style.display = 'none'; }, 400);
+    });
+  }, 3000);
+</script> 
